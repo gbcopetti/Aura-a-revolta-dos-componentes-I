@@ -1,0 +1,15 @@
+({
+    doInit: function(component, event, helper) {
+        component.set("v.lead", {'sobjectType': 'Lead'});
+    },
+    
+    handleSuccess: function(component, event, helper) {
+        var toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({
+            "title": "Sucesso!",
+            "message": "Lead criado com sucesso."
+        });
+        toastEvent.fire();
+        component.set("v.lead", {'sobjectType': 'Lead'});
+    }
+})
