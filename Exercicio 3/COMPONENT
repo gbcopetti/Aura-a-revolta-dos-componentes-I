@@ -1,0 +1,19 @@
+<aura:component controller="AccountList" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="accs" type="Account[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:card iconName="standard:account" title="Contas abertas em negociação">
+        
+        <div class ='slds-p-arround_medium'>
+            <aura:iteration items="{!v.accs}" var="account">
+                <p>----------------------------------</p>
+                <p>{!account.Name}</p>
+                <p>{!account.Rating}</p>
+                <p>{!account.Status_do_contato__c}</p>
+                
+            </aura:iteration>    
+        </div>
+        
+    </lightning:card>
+</aura:component>

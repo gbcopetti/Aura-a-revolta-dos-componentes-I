@@ -1,0 +1,10 @@
+public class AccountList {
+    @AuraEnabled
+    public static List<Account> getAccountList() {
+        return 	[SELECT Name, Status_do_contato__c, Rating 
+                 FROM Account 
+                 WHERE Rating = 'Hot' 
+                 ORDER BY createdDate 
+                 Desc Limit 5];
+    }
+}
