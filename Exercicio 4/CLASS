@@ -1,0 +1,8 @@
+public class OfficeProductController {
+    @AuraEnabled
+    public static List<Compra_de_material__c> getOfficeProducts() {
+        List<Compra_de_material__c> produtos =	
+            [SELECT Id, Name, Data_da_compra__c, Quantidade__c, Preco_unitario__c FROM Compra_de_material__c ORDER BY Name LIMIT 10];
+   		return produtos;
+    }
+}

@@ -1,0 +1,25 @@
+({
+
+   doInit: function (component, event, helper) {
+        component.set('v.mycolumns', [
+            { label: 'Nome do Produto', 	fieldName: 'Name', 				type: 'text'},
+            { label: 'Data da Compra', 		fieldName: 'Data_da_compra__c', type: 'date'},
+            { label: 'Quantidade', 			fieldName: 'Quantidade__c', 	type: 'number'},
+			{ label: 'Preço Unitário', 		fieldName: 'Preco_unitario__c', type: 'currency'},
+            { label: 'Preço Total', 		fieldName: 'Preco_total__c', 	type: 'currency'}
+        ]);
+        helper.getData(component);
+    },
+    
+        handleSuccess: function(component, event, helper) {
+        var toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({
+            "title": "Sucesso!",
+            "message": "Compra criada com sucesso."
+        });
+        toastEvent.fire();
+        component.set("v.ComprasInternas__c", {'sobjectType': 'ComprasInternas__c'});
+    }
+
+            
+})
